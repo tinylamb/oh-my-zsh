@@ -1,6 +1,10 @@
 printf '\033[0;34m%s\033[0m\n' "Upgrading Oh My Zsh"
-cd "$ZSH"
+cd "$ZSH" 
+# 双引号中三种特殊字符转义输出 $ \ `
+# echo "$ZSH\n" "`pwd`"
 if git pull --rebase --stat origin master
+#Commands (including the scripts and shell functions we write) issue a value to the system when they terminate, called an exit status.
+#常见的 if [ exp ];then 完整是 if test exp;then  分号或换行都能断句
 then
   printf '\033[0;32m%s\033[0m\n' '         __                                     __   '
   printf '\033[0;32m%s\033[0m\n' '  ____  / /_     ____ ___  __  __   ____  _____/ /_  '
