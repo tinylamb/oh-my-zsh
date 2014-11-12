@@ -13,6 +13,6 @@
 
 * theme_chooser.sh
 
-* uninstall.sh
+* uninstall.sh [√]
 
 * upgrade.sh [√]
