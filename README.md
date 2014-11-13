@@ -7,7 +7,7 @@
 
 * check_for_upgrade.sh [√]
 
-* install.sh
+* install.sh [√]
 
 * require_tool.sh
 

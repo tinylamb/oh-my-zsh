@@ -1,6 +1,6 @@
 set -e
 
-if [ ! -n "$ZSH" ]; then
+if [ ! -n "$ZSH" ]; then  # -n The length of string is greater than zero.
   ZSH=~/.oh-my-zsh
 fi
 
@@ -9,6 +9,7 @@ if [ -d "$ZSH" ]; then
   exit
 fi
 
+#{} 定义 code block
 echo "\033[0;34mCloning Oh My Zsh...\033[0m"
 hash git >/dev/null 2>&1 && env git clone https://github.com/robbyrussell/oh-my-zsh.git $ZSH || {
   echo "git not installed"
@@ -23,6 +24,8 @@ fi
 
 echo "\033[0;34mUsing the Oh My Zsh template file and adding it to ~/.zshrc\033[0m"
 cp $ZSH/templates/zshrc.zsh-template ~/.zshrc
+# sed 是文本编辑命令 有的类似vim
+# sed -i -e "/^ZSH=/ c\ZSH=$ZSH" ~/.zshrc
 sed -i -e "/^ZSH=/ c\\
 ZSH=$ZSH
 " ~/.zshrc
