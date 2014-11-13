@@ -5,7 +5,7 @@
 
 ###tools
 
-* check_for_upgrade.sh
+* check_for_upgrade.sh [√]
 
 * install.sh
 
