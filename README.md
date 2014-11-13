@@ -9,7 +9,7 @@
 
 * install.sh [√]
 
-* require_tool.sh
+* require_tool.sh [√]
 
 * theme_chooser.sh
 

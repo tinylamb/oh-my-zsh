@@ -1,3 +1,4 @@
+#!/bin/bash
 __require_tool_version_compare ()
 {
   (
@@ -103,6 +104,7 @@ require_tool ()
 }
 
 usage() {
+    #here documents
     cat <<EOF
 NAME
     require_tool.sh - Ensure version of a tool is greater than the one expected
@@ -145,7 +147,7 @@ EXAMPLE
 EOF
 }
 
-for arg in $@; do
+for arg in $@; do  # $@ = [para1 , para2 , ...]
     case $arg in
         -h|--help)
             usage
@@ -153,7 +155,7 @@ for arg in $@; do
             ;;
     esac
 done
-if [ $# -gt 2 ] ; then
+if [ $# -gt 2 ] ; then # $# = counts($@)
     echo "ERROR: expecting 2 parameters. Please see option --help"
     exit 1
 fi
