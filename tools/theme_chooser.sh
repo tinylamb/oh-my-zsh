@@ -13,6 +13,8 @@ source $ZSH/oh-my-zsh.sh
 
 function noyes() {
     read "a?$1 [y/N] "
+    #这里不同于bash read -p "prompt" para
+    #If the first argument contains a ‘?’, the remainder of this word is used as a prompt on standard error when the shell is interactive.
     if [[ $a == "N" || $a == "n" || $a = "" ]]; then
         return 0
     fi
