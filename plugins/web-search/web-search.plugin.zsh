@@ -3,14 +3,14 @@
 function web_search() {
   # get the open command
   local open_cmd
-  if [[ "$OSTYPE" = darwin* ]]; then
+  if [[ "$OSTYPE" = darwin* ]]; then  #这里使用了[[ expr ]] 语法  支持正则匹配 =~更佳
     open_cmd='open'
   else
     open_cmd='xdg-open'
   fi
 
   # check whether the search engine is supported
-  if [[ ! $1 =~ '(google|bing|yahoo|duckduckgo)' ]];
+  if [[ ! $1 =~ (google|bing|yahoo|duckduckgo) ]]; # (x|y) 正则匹配x or y
   then
     echo "Search engine $1 not supported."
     return 1
@@ -29,14 +29,16 @@ function web_search() {
   else
     url="${url}/search?q="
   fi
-  shift   # shift out $1
+  shift   # shift out $1 左移参数 $#也会减1
 
-  while [[ $# -gt 0 ]]; do
+  while [[ $# -gt 0 ]]; do #进一步了解 shift
     url="${url}$1+"
     shift
   done
 
-  url="${url%?}" # remove the last '+'
+  url="${url%?}" # remove the last '+' 
+  #shell Delete the last character of a string
+  # 《linux command line》 ch34
   nohup $open_cmd "$url" 
  	rm nohup.out	
 }
