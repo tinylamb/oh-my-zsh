@@ -16,3 +16,7 @@
 * uninstall.sh [√]
 
 * upgrade.sh [√]
+
+###plugins
+
+* web-search [√]
