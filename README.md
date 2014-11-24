@@ -20,3 +20,5 @@
 ###plugins
 
 * web-search [√]
+
+* extract [√]

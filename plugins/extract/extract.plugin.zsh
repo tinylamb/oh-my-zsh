@@ -23,20 +23,20 @@ function extract() {
 
   remove_archive=1
   if [[ "$1" == "-r" ]] || [[ "$1" == "--remove" ]]; then
-    remove_archive=0 
+    remove_archive=0 # 解压后删除压缩包
     shift
   fi
 
   while (( $# > 0 )); do
     if [[ ! -f "$1" ]]; then
       echo "extract: '$1' is not a valid file" 1>&2
-      shift
+      shift # shift 左移变量  原来的$2变为$1 且 $#减1
       continue
     fi
 
     success=0
     file_name="$( basename "$1" )"
-    extract_dir="$( echo "$file_name" | sed "s/\.${1##*.}//g" )"
+    extract_dir="$( echo "$file_name" | sed "s/\.${1##*.}//g" )" #linux command ch34
     case "$1" in
       (*.tar.gz|*.tgz) tar xvzf "$1" ;;
       (*.tar.bz2|*.tbz|*.tbz2) tar xvjf "$1" ;;
